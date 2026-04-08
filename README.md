@@ -97,7 +97,7 @@ systemctl restart haproxy
 
 ```bash
 # Клонировать репозиторий
-git clone https://github.com/vonavikon/Nova-VPN.git /opt/nova-vpn
+git clone https://github.com/vonavikon/Nova-Freedom-VPN.git /opt/nova-vpn
 cd /opt/nova-vpn
 
 # Установить зависимости
