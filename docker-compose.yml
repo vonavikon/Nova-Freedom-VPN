@@ -1,0 +1,19 @@
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nova-vpn-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./data:/opt/nova-vpn/data
+      - ./configs:/opt/nova-vpn/data/configs
+    networks:
+      - hiddify-network
+
+networks:
+  hiddify-network:
+    external: true
+    name: hiddify_default

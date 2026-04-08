@@ -1,0 +1,52 @@
+# Secrets
+.env
+ssh_key.txt
+priv.ppk
+*.pem
+
+# Archives
+*.tar
+*.tar.gz
+*.zip
+
+# Temp/build
+temp/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+*.egg
+dist/
+build/
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Obsidian
+.obsidian/
+
+# Random files
+-C
+pub
+*.MOV
+course.html
+test.html
+vpn-course-min.html
+video-output-*
+
+# Skills
+.skills/
+
+# Hiddify Manager (separate repo)
+Hiddify-Manager/
+
+# Standalone configs (deployed on server)
+xray-reality-47000.service
+xray_47000.json
+xray_config.json
+cdn_config.txt
+
+# Old standalone scripts (migrated into bot/)
+hiddify_manager.py
