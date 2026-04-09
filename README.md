@@ -130,6 +130,20 @@ nano .env  # заполнить переменные
 docker-compose up -d
 ```
 
+### Firewall
+
+Subscription server слушает порт 8888. Если бот и Xray на одном сервере — закройте порт извне:
+
+```bash
+# UFW
+ufw deny 8888/tcp
+
+# Или iptables
+iptables -A INPUT -p tcp --dport 8888 -s !127.0.0.1 -j DROP
+```
+
+Бот подключается к Xray через localhost, внешний доступ к 8888 не нужен.
+
 ## Конфигурация (.env)
 
 Все переменные описаны в `.env.example`. Основные:

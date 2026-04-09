@@ -82,5 +82,26 @@ class XrayConfigManager:
             self.restart_service()
             logger.info(f"Removed UUID {uuid} from Xray config")
         # No longer sync with Hiddify — Hiddify manages its own Reality inbound
- return changed
+        return changed
+
+    def restart_service(self) -> bool:
+        """Restart the Xray systemd service."""
+        if self.dry_run:
+            self.restart_requested = True
+            logger.info(f"Dry run: would restart {self.service_name}")
+            return True
+
+        try:
+            subprocess.run(
+                ["systemctl", "restart", self.service_name],
+                check=True, capture_output=True, text=True
+            )
+            logger.info(f"Restarted {self.service_name}")
+            return True
+        except subprocess.CalledProcessError as e:
+            logger.error(f"Failed to restart {self.service_name}: {e.stderr}")
+            return False
+        except FileNotFoundError:
+            logger.error("systemctl not found — not running on Linux?")
+            return False
 

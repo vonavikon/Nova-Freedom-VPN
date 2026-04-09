@@ -48,5 +48,3 @@ xray_47000.json
 xray_config.json
 cdn_config.txt
 
-# Old standalone scripts (migrated into bot/)
-hiddify_manager.py
